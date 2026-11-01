@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>HEXLOCK: The Final Key</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="intro">
+<div class="bg" aria-hidden="true"></div>
+<canvas id="fx" class="fx" aria-hidden="true"></canvas>
+<div class="blackout" id="blackout" aria-hidden="true"></div>
+<div class="banner" id="banner" aria-hidden="true">
+  <div class="banner-in">
+    <p class="b-big" id="bannerBig"></p>
+    <p class="b-sub" id="bannerSub"></p>
+  </div>
+</div>
+
+<section class="welcome" id="welcome" aria-labelledby="welcomeTitle">
+  <div class="welcome-card panel edge">
+    <p class="w-kicker">Welcome to</p>
+    <h1 class="logo w-title js-title" id="welcomeTitle">HEXLOCK</h1>
+    <p class="sub w-sub js-sub">THE FINAL KEY</p>
+    <p class="welcome-message">Enough of technical rounds—now let's actually focus on teamwork!</p>
+    <div class="w-row">
+      <div class="w-item"><span class="k">PRESENTED BY</span><span class="v" id="welcomeBy">Technical Committee, CSES</span></div>
+      <div class="w-item"><span class="k">EVENT</span><span class="v" id="welcomeEvent">Phase 3 Event</span></div>
+    </div>
+    <div class="team-field">
+      <div class="chip">
+        <span class="k">TEAM</span>
+        <span class="v" id="welcomeTeam">SKILL ISSUE</span>
+      </div>
+    </div>
+    <button class="enter" id="playBtn" type="button">ENTER</button>
+  </div>
+</section>
+
+<header class="top edge">
+  <div class="brand">
+    <p class="logo js-title">HEXLOCK</p>
+    <p class="sub js-sub">THE FINAL KEY</p>
+  </div>
+  <div class="meta">
+    <div class="chip"><span class="k">PHASE</span><span class="v" id="phaseLabel">FINAL PHASE</span></div>
+    <div class="chip"><span class="k">TEAM</span><span class="v" id="teamName">—</span></div>
+    <div class="chip"><span class="k" id="clockLabel">EVENT TIMER</span><span class="v mono" id="eventClock">00:00</span></div>
+  </div>
+</header>
+
+<p id="configError" class="config-error" role="alert" hidden></p>
+
+<main class="layout">
+  <aside class="brief panel edge open" id="brief">
+    <button class="brief-toggle" id="briefToggle" type="button" aria-expanded="true" aria-controls="briefBody">
+      <span>MISSION BRIEF</span><span class="chev" aria-hidden="true"></span>
+    </button>
+    <div class="brief-body" id="briefBody">
+      <div>
+        <section class="brief-sec" id="rulesSec">
+          <h4>RULES</h4>
+          <ul class="brief-list" id="rulesList"></ul>
+        </section>
+        <section class="brief-sec" id="cluesSec">
+          <h4>CLUES</h4>
+          <ol class="brief-list clue-list" id="cluesList"></ol>
+        </section>
+      </div>
+    </div>
+  </aside>
+
+  <section class="terminal panel edge" id="terminal" aria-labelledby="codeTitle">
+    <div class="beam" aria-hidden="true"></div>
+    <h2 id="codeTitle" class="code-title"></h2>
+
+    <div class="taunt" id="taunt" hidden></div>
+
+    <div class="codewrap" id="codewrap">
+      <div class="code" id="code" role="group" aria-label="Code"></div>
+      <div class="scan" aria-hidden="true"></div>
+      <input id="entry" class="entry" type="text" inputmode="text" autocomplete="off" autocapitalize="characters"
+             autocorrect="off" spellcheck="false" aria-label="Code entry">
+    </div>
+
+    <div class="actions">
+      <button class="enter" id="enterBtn" type="button">ENTER</button>
+    </div>
+
+    <p class="feedback" id="feedback" role="status" aria-live="polite"></p>
+
+    <div class="lock" id="lockBox" hidden>
+      <div class="lock-time mono" id="lockTime">00:30</div>
+      <p>SYSTEM LOCKED — TRY AGAIN WHEN THE TIMER ENDS.</p>
+    </div>
+
+    <div class="result" id="result" hidden>
+      <h3>HEXLOCK CRACKED</h3>
+      <p class="r-msg">CONGRATULATIONS — YOU FOUND THE FINAL KEY</p>
+      <p class="r-team" id="rTeam"></p>
+      <p class="r-time">Completion time <strong class="mono" id="rTime">00:00:00</strong></p>
+    </div>
+  </section>
+</main>
+
+<footer class="status edge">
+  <div class="stat"><span class="k">TOTAL ATTEMPTS</span><span class="v mono" id="statTotal">0</span></div>
+  <div class="stat"><span class="k">WRONG STREAK</span><span class="v mono"><span id="statStreak">0</span> / 3</span></div>
+  <div class="stat"><span class="k">SYSTEM STATUS</span><span class="v"><i class="dot" id="dot"></i><span id="statSystem">ONLINE</span></span></div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
